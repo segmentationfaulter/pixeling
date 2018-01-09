@@ -10,8 +10,6 @@ nonSaleNode.addEventListener('click', sendPixelEvent('nonSale'), {
 
 function sendPixelEvent (eventName) {
   return function () {
-    fbq('trackCustom', eventName, {
-      timestamp: Date.now()
-    })
+    fbq('trackCustom', eventName)
   }
 }
