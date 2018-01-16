@@ -19,52 +19,28 @@ cartNode.addEventListener('click', sendCartEvent, {
   once: true
 })
 
+const basePayload = {
+  value: 532,
+  currency: 'USD',
+  content_ids: ['ABC']
+}
+
 function sendViewEvent () {
-  window.fbq('track', 'ViewContent', {
-    value: 532,
-    currency: 'USD',
-    contents: {
-      id: 'ABC',
-      quantity: 1,
-      item_price: 600
-    },
+  window.fbq('track', 'ViewContent', Object.assign({}, basePayload, {
     content_type: 'product'
-  })
+  }))
 }
 
 function sendPurchaseEvent () {
-  window.fbq('track', 'Purchase', {
-    value: 532,
-    currency: 'USD',
-    contents: {
-      id: 'ABC',
-      quantity: 1,
-      item_price: 600
-    },
+  window.fbq('track', 'Purchase', Object.assign({}, basePayload, {
     content_type: 'product'
-  })
+  }))
 }
 
 function sendWishListEvent () {
-  window.fbq('track', 'AddToWishlist', {
-    value: 532,
-    currency: 'USD',
-    contents: {
-      id: 'ABC',
-      quantity: 1,
-      item_price: 600
-    }
-  })
+  window.fbq('track', 'AddToWishlist', basePayload)
 }
 
 function sendCartEvent () {
-  window.fbq('track', 'AddToCart', {
-    value: 532,
-    currency: 'USD',
-    contents: {
-      id: 'ABC',
-      quantity: 1,
-      item_price: 600
-    }
-  })
+  window.fbq('track', 'AddToCart', basePayload)
 }
