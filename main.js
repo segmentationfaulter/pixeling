@@ -22,7 +22,7 @@ cartNode.addEventListener('click', sendCartEvent, {
 const basePayload = {
   value: 532,
   currency: 'USD',
-  content_ids: ['ABC']
+  content_ids: ['4234234']
 }
 
 function sendViewEvent () {
